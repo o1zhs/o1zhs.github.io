@@ -144,12 +144,12 @@
 <p>博客搭建平台：Hexo</p>
 <p>托管平台：github，并且拥有一个账号</p>
 <p>我使用的操作系统是苹果的OS Sierra，和OS X差不多。由于其是一个类unix操作系统，因此很多地方和linux很像。也由于我的苹果电脑便携，因此windows下利用git bash等等工具搭建的过程目前还不是很清楚。预见到自己以后很长时间也会使用苹果的操作系统。</p>
-<h3 id="二、操作系统配置"><a href="#二、操作系统配置" class="headerlink" title="二、操作系统配置"></a>二、操作系统配置</h3><h4 id="1、安装homebrew"><a href="#1、安装homebrew" class="headerlink" title="1、安装homebrew"></a>1、安装homebrew</h4><p>Homebrew是针对Mac os终端设计的软件包管理工具，拥有安装、卸载、更新、查看、搜索等很多实用的功能。简单的一条指令，就可以实现包管理，而不用你关心各种依赖和文件路径的情况，十分方便快捷。要求电脑上必须安装Xcode命令行工具。下载命令：</p>
-<p><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></p>
+<h3 id="二、操作系统配置"><a href="#二、操作系统配置" class="headerlink" title="二、操作系统配置"></a>二、操作系统配置</h3><h4 id="1、安装homebrew"><a href="#1、安装homebrew" class="headerlink" title="1、安装homebrew"></a>1、安装homebrew</h4><p>Homebrew是针对Mac os终端设计的软件包管理工具，拥有安装、卸载、更新、查看、搜索等很多实用的功能。简单的一条指令，就可以实现包管理，而不用你关心各种依赖和文件路径的情况，十分方便快捷。要求电脑上必须安装Xcode命令行工具。下载命令百度去其官网查看即可。</p>
 <h4 id="2、安装git-amp-amp-node-js-amp-amp-npm"><a href="#2、安装git-amp-amp-node-js-amp-amp-npm" class="headerlink" title="2、安装git &amp;&amp; node.js &amp;&amp; npm"></a>2、安装git &amp;&amp; node.js &amp;&amp; npm</h4><p>安装git：<code>brew install git</code></p>
-<p>Node.js 和 npm的安装可以参见hexo官网：<a href="https://hexo.io，但建议Node.js去其官网安装，版本较新" target="_blank" rel="noopener">https://hexo.io，但建议Node.js去其官网安装，版本较新</a></p>
+<p>Node.js 和 npm的安装可以参见hexo官网：<a href="https://hexo.io，" target="_blank" rel="noopener">https://hexo.io，</a></p>
+<p>但建议Node.js去其官网安装，版本较新。</p>
 <p>这里注意node.js和npm只要安装一遍就好了，如果安装多了不同的版本，每次打开终端时都会提示有版本冲突。如果出现这种情况需要删除配置以后再安装，很麻烦。</p>
-<h3 id="三、在github上创建仓库"><a href="#三、在github上创建仓库" class="headerlink" title="三、在github上创建仓库"></a>三、在github上创建仓库</h3><p>新建一个名为<code>你的用户名.github.io</code>的仓库，比如说，如果你的github用户名是test，那么你就新建<code>test.github.io</code>的仓库（必须是你的用户名，其它名称无效），将来你的网站访问地址就是 <a href="http://test.github.io/" target="_blank" rel="noopener">http://test.github.io</a> 了，非常方便</p>
+<h3 id="三、在github上创建仓库"><a href="#三、在github上创建仓库" class="headerlink" title="三、在github上创建仓库"></a>三、在github上创建仓库</h3><p>新建一个名为<code>你的用户名.github.io</code>的仓库，比如说，如果你的github用户名是test，那么你就新建<code>test.github.io</code>的仓库（必须是你的用户名，其它名称无效），将来你的网站访问地址就是 <code>http://test.github.io/</code>了，非常方便</p>
 <p>由此可见，每一个github账户最多只能创建一个这样可以直接使用域名访问的仓库。创建成功后，默认会在你这个仓库里生成一些示例页面，以后的网站所有代码都是放在这个仓库里。</p>
 <h3 id="四、绑定域名"><a href="#四、绑定域名" class="headerlink" title="四、绑定域名"></a>四、绑定域名</h3><p>当然，不绑定域名肯定也是可以的，就用默认的 <code>xxx.github.io</code> 来访问，如果你想更个性一点，想拥有一个属于自己的域名，那也是OK的。</p>
 <p>本网站的域名是在阿里的万网上购买，20元一年。abigale的意思是“最初的快乐”。后缀就无所谓了，com肯定非常贵。</p>
@@ -190,7 +190,7 @@
 <p>常见命令：</p>
 <p>hexo new “postName” #新建文章<br>hexo new page “pageName” #新建页面<br>hexo generate #生成静态页面至public目录<br>hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）<br>hexo deploy #部署到GitHub<br>hexo help  # 查看帮助<br>hexo version  #查看Hexo的版本</p>
 <p>还需要在source文件夹下建立一个无后缀名的CNAME保存域名，不然每次上传都会让之前的域名文件覆盖掉。也可加上一个README.md。</p>
-<h3 id="七、致谢"><a href="#七、致谢" class="headerlink" title="七、致谢"></a>七、致谢</h3><p>感谢hexo以及github ，还有设计本主题的作者，网站低端有其作者网站链接。</p>
+<h3 id="七、致谢"><a href="#七、致谢" class="headerlink" title="七、致谢"></a>七、致谢</h3><p>感谢hexo以及github ，还有设计本主题的作者，网站底部有其作者网站链接。</p>
 
                     
                     <!-- Tags Bottom -->
