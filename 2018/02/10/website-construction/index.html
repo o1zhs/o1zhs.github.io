@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="感谢github这个开源平台能够为我们提供如此服务，我真的是被其开源思想深深吸引。人类计算机事业的发展少不了github的贡献。本网站也是基于github &amp;amp;&amp;amp; hexo搭建的。下面记录搭建过程，以便后续翻看。
+一、建站前的准备终端操作系统：Mac OS Sierra
+博客搭建平台：">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="基于github &amp;&amp; hexo网站搭建记录"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="abigale e"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>基于github &amp;&amp; hexo网站搭建记录 - abigale e</title>
+
+    <!-- Tachyons Core CSS -->
+    <link rel="stylesheet" href="//unpkg.com/tachyons/css/tachyons.min.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+<!-- Main Content -->
+<!-- Banner -->
+<!-- Banner -->
+<div class="w-100 bg-1 ph5-ns ph3 text-light">
+    
+    <nav class="db dt-l w-100 mw8 center border-box pv3">
+        <a class="db dtc-l v-mid link dim w-100 w-25-l tc tl-l mb2 mb0-l white" href="/" title="abigale e">
+            <img src="http://www.codeblocq.com/assets/projects/hexo-theme-anodyne/assets/anodyne.svg" class="dib h3" alt="abigale e">
+        </a>
+        <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/" 
+                    title="Home">
+                    Home
+                </a>
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/archives" 
+                    title="Archives">
+                    Archives
+                </a>
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/about.html" 
+                    title="About">
+                    About
+                </a>
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/contact.html" 
+                    title="Contact">
+                    Contact
+                </a>
+            
+        </div>
+    </nav>
+
+    <!-- Title -->
+    <div class="w-100 mw8 center vh-40 dt">
+        <div class="dtc v-mid white">
+            <h1 class="f1-l f2-m tc tc-m tl-ns">基于github && hexo网站搭建记录</h1>
+            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2018-02-10</p>
+        </div>
+    </div>
+
+    <!-- Icon -->
+    <div class="relative w-100 mw8 center white dn dn-m db-ns">
+        <i class="header-icon fa fa-file-text-o"></i>
+    </div>
+</div>
+
+<!-- Content -->
+<div class="w-100 ph2 ph4-m ph5-l mv5 mv6-l">
+    <div class="content">
+        <div class="mw8 center">
+            <div class="cf">
+                <div class="fl w-100 w-70-l mw7 left fw3 lh-copy pr4-ns pr0-m post-content">
+                    <!-- Tags Vertical -->
+                    
+                        <div class="tags-container-vertical">
+                            <div class="tags-sub-container">
+                                <a class="fw3 ph1 dib" href="/tags/record/">#record</a>
+                            </div>
+                        </div>
+                    
+
+                    <!-- Main Post Content -->
+                    <p>感谢github这个开源平台能够为我们提供如此服务，我真的是被其开源思想深深吸引。人类计算机事业的发展少不了github的贡献。本网站也是基于github &amp;&amp; hexo搭建的。下面记录搭建过程，以便后续翻看。</p>
+<h3 id="一、建站前的准备"><a href="#一、建站前的准备" class="headerlink" title="一、建站前的准备"></a>一、建站前的准备</h3><p>终端操作系统：Mac OS Sierra</p>
+<p>博客搭建平台：Hexo</p>
+<p>托管平台：github，并且拥有一个账号</p>
+<p>我使用的操作系统是苹果的OS Sierra，和OS X差不多。由于其是一个类unix操作系统，因此很多地方和linux很像。也由于我的苹果电脑便携，因此windows下利用git bash等等工具搭建的过程目前还不是很清楚。预见到自己以后很长时间也会使用苹果的操作系统。</p>
+<h3 id="二、操作系统配置"><a href="#二、操作系统配置" class="headerlink" title="二、操作系统配置"></a>二、操作系统配置</h3><h4 id="1、安装homebrew"><a href="#1、安装homebrew" class="headerlink" title="1、安装homebrew"></a>1、安装homebrew</h4><p>Homebrew是针对Mac os终端设计的软件包管理工具，拥有安装、卸载、更新、查看、搜索等很多实用的功能。简单的一条指令，就可以实现包管理，而不用你关心各种依赖和文件路径的情况，十分方便快捷。要求电脑上必须安装Xcode命令行工具。下载命令：</p>
+<p><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></p>
+<h4 id="2、安装git-amp-amp-node-js-amp-amp-npm"><a href="#2、安装git-amp-amp-node-js-amp-amp-npm" class="headerlink" title="2、安装git &amp;&amp; node.js &amp;&amp; npm"></a>2、安装git &amp;&amp; node.js &amp;&amp; npm</h4><p>安装git：<code>brew install git</code></p>
+<p>Node.js 和 npm的安装可以参见hexo官网：<a href="https://hexo.io，但建议Node.js去其官网安装，版本较新" target="_blank" rel="noopener">https://hexo.io，但建议Node.js去其官网安装，版本较新</a></p>
+<p>这里注意node.js和npm只要安装一遍就好了，如果安装多了不同的版本，每次打开终端时都会提示有版本冲突。如果出现这种情况需要删除配置以后再安装，很麻烦。</p>
+<h3 id="三、在github上创建仓库"><a href="#三、在github上创建仓库" class="headerlink" title="三、在github上创建仓库"></a>三、在github上创建仓库</h3><p>新建一个名为<code>你的用户名.github.io</code>的仓库，比如说，如果你的github用户名是test，那么你就新建<code>test.github.io</code>的仓库（必须是你的用户名，其它名称无效），将来你的网站访问地址就是 <a href="http://test.github.io/" target="_blank" rel="noopener">http://test.github.io</a> 了，非常方便</p>
+<p>由此可见，每一个github账户最多只能创建一个这样可以直接使用域名访问的仓库。创建成功后，默认会在你这个仓库里生成一些示例页面，以后的网站所有代码都是放在这个仓库里。</p>
+<h3 id="四、绑定域名"><a href="#四、绑定域名" class="headerlink" title="四、绑定域名"></a>四、绑定域名</h3><p>当然，不绑定域名肯定也是可以的，就用默认的 <code>xxx.github.io</code> 来访问，如果你想更个性一点，想拥有一个属于自己的域名，那也是OK的。</p>
+<p>本网站的域名是在阿里的万网上购买，20元一年。abigale的意思是“最初的快乐”。后缀就无所谓了，com肯定非常贵。</p>
+<p>绑定域名分2种情况：带www和不带www的。</p>
+<p>域名配置最常见有2种方式，CNAME和A记录，CNAME填写域名，A记录填写IP。到你的域名DNS设置页，将A记录指向github的IP，将CNAME指向<code>你的用户名.github.io</code>，这样可以保证无论是否添加www都可以访问。如下图</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1fobf4ahpqgj30qw066wfe.jpg" alt=""></p>
+<p>然后到你的github项目根目录新建一个名为CNAME的文件（无后缀），里面填写你的域名，加不加www都可以。</p>
+<h3 id="五、配置SSH-key"><a href="#五、配置SSH-key" class="headerlink" title="五、配置SSH key"></a>五、配置SSH key</h3><p>配置ssh key的目的就是将你的终端电脑作为一台可信设备能够与github上的服务器进行通信。</p>
+<p>可以直接在终端里面敲命令</p>
+<p><code>.ssh</code> 这样就直接进入了ssh配置文件夹。如果出现错误说明是第一次使用ssh。</p>
+<p>然后敲命令</p>
+<p><code>ssh-keygen -t rsa -C &quot;邮件地址&quot;</code>邮箱地址为注册github的邮箱地址。</p>
+<p>然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到<code>.ssh\id_rsa.pub</code>文件，记事本打开并复制里面的内容，打开github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key：</p>
+<p>进行测试</p>
+<p><code>ssh -T git@github.com # 注意邮箱地址不用改</code></p>
+<p>有提示输入yes，然后如果看到提示</p>
+<p>Hi xxxxxx! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
+<p>则说明配置成功了。后面还需要敲两行命令</p>
+<p><code>git config --global user.name &quot;xxx&quot;// 你的github用户名，非昵称</code><br><code>git config --global user.email  &quot;xxx@qq.com&quot;// 填写你的github注册邮箱</code></p>
+<h3 id="六、使用hexo搭建博客"><a href="#六、使用hexo搭建博客" class="headerlink" title="六、使用hexo搭建博客"></a>六、使用hexo搭建博客</h3><p>Hexo是一个简单、快速、强大的基于 Github Pages 的博客发布工具，支持Markdown格式，有众多优秀插件和主题。</p>
+<p>由于github pages存放的都是静态文件，博客存放的不只是文章内容，还有文章列表、分类、标签、翻页等动态内容，假如每次写完一篇文章都要手动更新博文目录和相关链接信息，相信谁都会疯掉，所以hexo所做的就是将这些md文件都放在本地，每次写完文章后调用写好的命令来批量完成相关页面的生成，然后再将有改动的页面提交到github。</p>
+<p>安装过程详见hexo官网。</p>
+<p>安装好后就可以创建一个hexo博客工作站</p>
+<p>在终端敲命令：</p>
+<p><code>hexo init 文件夹名</code></p>
+<p>以后所有的hexo工作都在此文件夹中进行。</p>
+<p>有一项注意的：在我的电脑上每次打开终端都需要先敲命令</p>
+<p><code>nvm install stable</code></p>
+<p>才能使用hexo，这个可能是需要重新下载nvm的稳定版。</p>
+<p>然后将当前路径定位到你的博客工作站，会发现有如下文件：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79gy1fobfj1kftvj309s02hglu.jpg" alt=""></p>
+<p>然后再敲hexo g 和hexo s，通过浏览器访问localhost:4000，就可以看到本地预览服务的网站了。</p>
+<p>在工作站根目录下的_config.yml里面可以修改配置信息，如主题、网站标题以及上传仓库等等。</p>
+<p>有关上传到github的配置部分如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:xxx/xxx.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>并且安装插件：<code>npm install hexo-deployer-git --save</code>，且每次上传之前都要安装此插件，具体为什么我也不知道。</p>
+<p>然后hexo d就可以了。每次写文章要在source/_post目录下写就可以了。</p>
+<p>常见命令：</p>
+<p>hexo new “postName” #新建文章<br>hexo new page “pageName” #新建页面<br>hexo generate #生成静态页面至public目录<br>hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）<br>hexo deploy #部署到GitHub<br>hexo help  # 查看帮助<br>hexo version  #查看Hexo的版本</p>
+<p>还需要在source文件夹下建立一个无后缀名的CNAME保存域名，不然每次上传都会让之前的域名文件覆盖掉。也可加上一个README.md。</p>
+<h3 id="七、致谢"><a href="#七、致谢" class="headerlink" title="七、致谢"></a>七、致谢</h3><p>感谢hexo以及github ，还有设计本主题的作者，网站低端有其作者网站链接。</p>
+
+                    
+                    <!-- Tags Bottom -->
+                    
+                        <div class="tags-container-bottom">
+                            <i class="fa fa-tag pr3 text-main-color"></i><a class="fw3 ph1 dib" href="/tags/record/">#record</a>
+                        </div>
+                    
+
+                    <!-- Comments -->
+                    
+<div id="disqus_thread" class="mt5">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+
+
+
+                </div>
+                <div class="fl w-100 w-30-l center fw3 lh-copy pl4-ns tl black-50">
+                    
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 1: About -->
+                    <div class="mt5 mt0-l">
+    <article class="dt db-l mw8 mw8-m mw5-ns center ml0-l bg-white mv3">
+        <div class="dn dtc-m db-l v-mid tc pr4 pr0-l" style="min-width: 6rem;">
+            <img src="https://ws3.sinaimg.cn/large/006tNbRwly1fnuda6mogpj30zk189jyh.jpg" class="mb4-l br-100 h3 w3 h4-l w4-l dib" title="John Doe">
+        </div>
+        <div class="dtc db-l v-mid lh-copy measure center f6 black-50 tj">
+            My name is 张浩森 and this is my blog.<br>I am a university student from HNU.<br> I currently live and work in Changsha, Hunan, hit me up if you are in the region.
+        </div>
+    </article>
+</div>
+
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 2: Categories -->
+                    
+
+                    <!-- Widget 3: Recent Posts -->
+                    <div class="mt5 tc tl-l">
+    <h3>Recent Posts</h3>
+    
+        <p>
+            <a href="/2018/02/10/website-construction/">基于github &amp;&amp; hexo网站搭建记录</a>
+        </p>
+    
+        <p>
+            <a href="/2018/02/09/Pekingpermanent-share/">一次分享会的感受</a>
+        </p>
+    
+        <p>
+            <a href="/2018/01/26/picture/">My name_logo</a>
+        </p>
+    
+        <p>
+            <a href="/2018/01/24/Producer&Consumer_Linux/">Linux下利用信号量函数和共享内存函数和C语言实现生产者消费者问题</a>
+        </p>
+    
+        <p>
+            <a href="/2018/01/19/hello-world/">Welcome to my website</a>
+        </p>
+    
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<div class="bg-1 ph2 ph5-ns pv5">
+        <div class="mv8">
+            <div class="center tc">
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://twitter.com/?lang=en" target="_blank">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://www.facebook.com/" target="_blank">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://dribbble.com/" target="_blank">
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://github.com/klugjo/hexo-theme-anodyne" target="_blank">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://plus.google.com/" target="_blank">
+                            <i class="fa fa-google-plus"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://www.behance.net/" target="_blank">
+                            <i class="fa fa-behance"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://500px.com/" target="_blank">
+                            <i class="fa fa-500px"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="mailto:test@example.com" target="_blank">
+                            <i class="fa fa-envelope"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="/#" target="_blank">
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </div>
+                
+            </div>
+            <div class="f6 f5-ns center tc white pt5 fw3">
+                @2018. All right reserved by zhs| Thankful for Design & Hexo <a class="link dim white" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+            </div>
+        </div>
+    </div>
+
+<!-- After Footer -->
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'abigale-1';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>
