@@ -1,0 +1,221 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> SQL练习2 · Abigale</title><meta name="description" content="SQL练习2 - zhs"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Abigale"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/sunchongsheng" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/pinggod" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">SQL练习2</h1><div class="post-info">Apr 29, 2018</div><div class="post-content"><h3 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h3><p>​    掌握复杂查询的使用方法。</p>
+<p>​    掌握视图的创建、视图的查询以及通过视图更新（插入、修改、删除）基本表中的数据。</p>
+<h3 id="二、实验任务"><a href="#二、实验任务" class="headerlink" title="二、实验任务"></a>二、实验任务</h3><h5 id="综合查询："><a href="#综合查询：" class="headerlink" title="综合查询："></a>综合查询：</h5><p>1、求不选修C语言课程的学生学号。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> sno <span class="keyword">from</span> S <span class="keyword">where</span> <span class="keyword">not</span> <span class="keyword">exists</span>(</span><br><span class="line">	<span class="keyword">select</span> * <span class="keyword">from</span> SC <span class="keyword">where</span> sno = S.sno <span class="keyword">and</span> cno = (</span><br><span class="line">		<span class="keyword">select</span> cno <span class="keyword">from</span> C <span class="keyword">where</span> cname = <span class="string">'C语言'</span>));</span><br></pre></td></tr></table></figure>
+<p>2、查询平均成绩在60分以上的学生姓名。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> sname <span class="keyword">from</span> S x <span class="keyword">where</span> <span class="number">60</span> &lt;= (</span><br><span class="line">	<span class="keyword">select</span> <span class="keyword">avg</span>(grade) <span class="keyword">from</span> SC y <span class="keyword">where</span> x.sno = y.sno);</span><br></pre></td></tr></table></figure>
+<p>3、求这样的学生姓名：该学生选修了全部课程并且其中一门课在90分以上。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> sname <span class="keyword">from</span> S <span class="keyword">where</span> sno <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> sno <span class="keyword">from</span> SC <span class="keyword">group</span> <span class="keyword">by</span> sno <span class="keyword">having</span> <span class="keyword">count</span>(*) = (<span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">from</span> C) <span class="keyword">in</span>(</span><br><span class="line">		<span class="keyword">select</span> sno <span class="keyword">from</span> SC <span class="keyword">group</span> <span class="keyword">by</span> sno <span class="keyword">having</span> <span class="keyword">max</span>(grade) &gt; <span class="number">90</span>));</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> sname <span class="keyword">from</span> S <span class="keyword">where</span> sno <span class="keyword">in</span>(</span><br><span class="line">	<span class="keyword">select</span> sno <span class="keyword">from</span> SC <span class="keyword">where</span> sno <span class="keyword">in</span> (</span><br><span class="line">		<span class="keyword">select</span> sno <span class="keyword">from</span> S <span class="keyword">where</span> <span class="keyword">not</span> <span class="keyword">exists</span>(</span><br><span class="line">			<span class="keyword">select</span> * <span class="keyword">from</span> C <span class="keyword">where</span> <span class="keyword">not</span> <span class="keyword">exists</span>(</span><br><span class="line">				<span class="keyword">select</span> * <span class="keyword">from</span> SC <span class="keyword">where</span> sno = S.sno <span class="keyword">and</span> cno = C.cno))) <span class="keyword">group</span> <span class="keyword">by</span> sno <span class="keyword">having</span> <span class="keyword">max</span>(grade) &gt; <span class="number">90</span>);</span><br></pre></td></tr></table></figure>
+<p>4、查询选修课程数在两门以上的学生姓名。（用连接查询和嵌套查询两种方法实现）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#嵌套查询</span><br><span class="line"><span class="keyword">select</span> sname <span class="keyword">from</span> S <span class="keyword">where</span> sno <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> sno <span class="keyword">from</span> SC <span class="keyword">group</span> <span class="keyword">by</span> sno <span class="keyword">having</span> <span class="keyword">count</span>(*) &gt; <span class="number">2</span>);</span><br><span class="line">	</span><br><span class="line">#连接查询</span><br><span class="line"><span class="keyword">select</span> S.sname <span class="keyword">from</span> S <span class="keyword">inner</span> <span class="keyword">join</span> SC <span class="keyword">on</span> S.sno = SC.sno <span class="keyword">group</span> <span class="keyword">by</span> sname <span class="keyword">having</span> <span class="keyword">count</span>(*) &gt; <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<p>5、查询所有成绩都及格的学生人数。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(<span class="keyword">distinct</span> sno) <span class="keyword">from</span> SC <span class="keyword">where</span> sno <span class="keyword">in</span>(</span><br><span class="line">	<span class="keyword">select</span> sno <span class="keyword">from</span> SC <span class="keyword">group</span> <span class="keyword">by</span> sno <span class="keyword">having</span> <span class="keyword">min</span>(grade) &gt;= <span class="number">60</span>);</span><br></pre></td></tr></table></figure>
+<p>6、查询成绩及格的学生人次。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(sname) <span class="keyword">from</span> S <span class="keyword">where</span> sname <span class="keyword">in</span>(<span class="keyword">select</span> sname <span class="keyword">from</span> S x <span class="keyword">where</span> <span class="number">60</span> &lt;= (</span><br><span class="line">	<span class="keyword">select</span> <span class="keyword">avg</span>(grade) <span class="keyword">from</span> SC y <span class="keyword">where</span> x.sno = y.sno));</span><br></pre></td></tr></table></figure>
+<p>7、查询所有学生都没有选修的课程名称。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> cname <span class="keyword">from</span> C <span class="keyword">where</span> cno <span class="keyword">not</span> <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> <span class="keyword">distinct</span> cno <span class="keyword">from</span> SC);</span><br></pre></td></tr></table></figure>
+<p>8、查询每个学生的平均成绩，并按平均成绩的降序排序。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> sname, <span class="keyword">avg</span>(grade) <span class="keyword">from</span> S,SC <span class="keyword">where</span> S.sno = SC.sno <span class="keyword">group</span> <span class="keyword">by</span> SC.sno <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">avg</span>(grade) <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+<p>9、查询每个同学的最高分，要求显示学号、姓名和分数等信息。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> S.sno, sname, <span class="keyword">max</span>(grade) <span class="keyword">from</span> SC,S <span class="keyword">where</span> S.sno = SC.sno <span class="keyword">group</span> <span class="keyword">by</span> SC.sno;</span><br></pre></td></tr></table></figure>
+<p>10、查询选修同一门课程的学生学号。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> sno <span class="keyword">from</span> SC,C <span class="keyword">where</span> SC.cno = C.cno;</span><br></pre></td></tr></table></figure>
+<p>11、查询不及格学生的学号、课程名、开课学期的信息。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> SC.sno, C.cname, SC.term <span class="keyword">from</span> SC,C <span class="keyword">where</span> SC.cno = C.cno <span class="keyword">and</span> sno <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> sno <span class="keyword">from</span> SC <span class="keyword">group</span> <span class="keyword">by</span> sno <span class="keyword">having</span> <span class="keyword">avg</span>(grade) &lt; <span class="number">60</span>);</span><br></pre></td></tr></table></figure>
+<p>12、按学号分组汇总总分高于100的学生记录，并按总分的降序排列。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> S.* <span class="keyword">from</span> S,SC <span class="keyword">where</span> S.sno = SC.sno <span class="keyword">group</span> <span class="keyword">by</span> SC.sno <span class="keyword">having</span> <span class="keyword">sum</span>(grade) &gt; <span class="number">100</span> <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">sum</span>(grade) <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+<p>13、求恰好有两门课程不及格的学生信息。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> S <span class="keyword">where</span> sno <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> sno <span class="keyword">from</span> sc <span class="keyword">where</span> grade &lt; <span class="number">60</span> <span class="keyword">group</span> <span class="keyword">by</span> sno <span class="keyword">having</span> <span class="keyword">count</span>(cno)=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p>14、查询每门课程的最高分的学生记录。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> S.*, SC.cno <span class="keyword">from</span> S,SC,C <span class="keyword">where</span> S.sno = SC.sno <span class="keyword">and</span> SC.cno = C.cno <span class="keyword">and</span> grade <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> <span class="keyword">max</span>(grade) <span class="keyword">from</span> SC <span class="keyword">where</span> SC.cno = C.cno);</span><br></pre></td></tr></table></figure>
+<p>15、查询每个学生的最低分的课程记录。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> C.*, SC.sno <span class="keyword">from</span> S,SC,C <span class="keyword">where</span> S.sno = SC.sno <span class="keyword">and</span> SC.cno = C.cno <span class="keyword">and</span> grade <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> <span class="keyword">min</span>(grade) <span class="keyword">from</span> SC <span class="keyword">where</span> SC.sno = S.sno);</span><br></pre></td></tr></table></figure>
+<p><strong>视图管理：</strong></p>
+<p>1、为学生表创建一个视图V_XSQK，以显示学生的基本信息，如学号、姓名、性别和出生年月。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> V_XSQK <span class="keyword">as</span> <span class="keyword">select</span> sno,sname,ssex,sbirth <span class="keyword">from</span> S;</span><br></pre></td></tr></table></figure>
+<p>2、创建视图V_SC，要求显示学生的姓名、选修的课程名和成绩。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> V_SC <span class="keyword">as</span> <span class="keyword">select</span> S.sname,C.cname,SC.grade <span class="keyword">from</span> S,C,SC <span class="keyword">where</span> S.sno=SC.sno <span class="keyword">and</span> C.cno=SC.cno;</span><br></pre></td></tr></table></figure>
+<p>3、创建视图V_ST，显示在1981-1-1以后出生的学生信息，包括学号，姓名，性别和出生年月。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> V_ST <span class="keyword">as</span> <span class="keyword">select</span> sno,sname,ssex,sbirth <span class="keyword">from</span> S <span class="keyword">where</span> sbirth&gt;<span class="string">'1981-1-1'</span>;</span><br></pre></td></tr></table></figure>
+<p>4、创建视图v_HG，显示成绩合格的学生信息，包括姓名、课程名和成绩。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> v_HG <span class="keyword">as</span> <span class="keyword">select</span> S.sname,C.cname,SC.grade <span class="keyword">from</span> S,C,SC, <span class="keyword">where</span> S.sno=SC.sno <span class="keyword">and</span> C.cno=SC.cno <span class="keyword">and</span> SC.grade&gt;=<span class="number">60</span>;</span><br></pre></td></tr></table></figure>
+<p>5、创建分组视图V_GP，要求查询每个学生的平均成绩，包括姓名，平均成绩。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> v_GP <span class="keyword">as</span> <span class="keyword">select</span> S.sname, <span class="keyword">avg</span>(grade) <span class="keyword">from</span> S,SC <span class="keyword">where</span> S.sno = SC.sno <span class="keyword">group</span> <span class="keyword">by</span> SC.sno;</span><br></pre></td></tr></table></figure>
+<p>6、向视图V_XSQK中插入一条记录：‘2020206’，‘李红’，‘1983-12-3’。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> V_XSQK <span class="keyword">values</span> (<span class="string">'2020206'</span>,<span class="string">'李红'</span>,<span class="string">'女'</span>,<span class="string">'1983-12-3'</span>);</span><br></pre></td></tr></table></figure>
+<p>7、修改视图V_XSQK，将李红同学是出生年月改为1982-12-3。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> V_XSQK <span class="keyword">set</span> sbirth=<span class="string">'1982-12-3'</span> <span class="keyword">where</span> sno=<span class="string">'2020206'</span>;</span><br></pre></td></tr></table></figure>
+<p>8、删除视图V_XSQK中李红同学的信息。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> V_XSQK <span class="keyword">where</span> sno=<span class="string">'2020206'</span>;</span><br></pre></td></tr></table></figure>
+<p>9、删除视图V_XSQK。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">view</span> v_XSQK;</span><br></pre></td></tr></table></figure>
+<p>10、创建视图V_PJ，查询平均成绩在60分以上的学生信息，包括姓名和平均成绩。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">or</span> <span class="keyword">replace</span> <span class="keyword">view</span> V_PJ <span class="keyword">as</span> <span class="keyword">select</span> S.sname, <span class="keyword">avg</span>(grade) <span class="keyword">from</span> S,SC <span class="keyword">where</span> S.sno = SC.sno <span class="keyword">group</span> <span class="keyword">by</span> SC.sno <span class="keyword">having</span> <span class="keyword">avg</span>(grade) &gt; <span class="number">60</span>;</span><br></pre></td></tr></table></figure>
+<p>注意：用到的表结构及信息如下：</p>
+<p>S：学生基本信息表；C：课程基本信息表；SC：学生选课信息表。</p>
+<p>各表的结构以及数据如下所示：  </p>
+<p>表2.1 学生基本信息表(表名：S)</p>
+<table>
+<thead>
+<tr>
+<th>sno</th>
+<th>sname</th>
+<th>ssex</th>
+<th>sbirth</th>
+<th>Sdept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>95001</td>
+<td>李勇</td>
+<td>男</td>
+<td>1986/1/1</td>
+<td>CS</td>
+</tr>
+<tr>
+<td>95002</td>
+<td>刘晨</td>
+<td>女</td>
+<td>1985/2/1</td>
+<td>IS</td>
+</tr>
+<tr>
+<td>95003</td>
+<td>王敏</td>
+<td>女</td>
+<td>1886/10/4</td>
+<td>MA</td>
+</tr>
+<tr>
+<td>95004</td>
+<td>张立</td>
+<td>男</td>
+<td>1985/6/8</td>
+<td>IS</td>
+</tr>
+</tbody>
+</table>
+<p>表2.2 课程基本信息表(表名：C)</p>
+<table>
+<thead>
+<tr>
+<th>cno</th>
+<th>cname</th>
+<th>cpno</th>
+<th>Ccredit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>数据库</td>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr>
+<td>2</td>
+<td>数学</td>
+<td></td>
+<td>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>信息系统</td>
+<td>1</td>
+<td>4</td>
+</tr>
+<tr>
+<td>4</td>
+<td>操作系统</td>
+<td>5</td>
+<td>3</td>
+</tr>
+<tr>
+<td>5</td>
+<td>数据结构</td>
+<td>6</td>
+<td>3</td>
+</tr>
+<tr>
+<td>6</td>
+<td>C语言</td>
+<td></td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>表2.3 学生选课信息表(表名：SC)</p>
+<table>
+<thead>
+<tr>
+<th>sno</th>
+<th>cno</th>
+<th>grade</th>
+<th>term</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>95001</td>
+<td>1</td>
+<td>92</td>
+<td>1</td>
+</tr>
+<tr>
+<td>95001</td>
+<td>2</td>
+<td>85</td>
+<td>2</td>
+</tr>
+<tr>
+<td>95001</td>
+<td>3</td>
+<td>87</td>
+<td>3</td>
+</tr>
+<tr>
+<td>95002</td>
+<td>2</td>
+<td>78</td>
+<td>2</td>
+</tr>
+<tr>
+<td>95002</td>
+<td>3</td>
+<td>84</td>
+<td>3</td>
+</tr>
+<tr>
+<td>95003</td>
+<td>1</td>
+<td>30</td>
+<td>1</td>
+</tr>
+<tr>
+<td>95004</td>
+<td>2</td>
+<td>58</td>
+<td>2</td>
+</tr>
+<tr>
+<td>95004</td>
+<td>4</td>
+<td>70</td>
+<td>3</td>
+</tr>
+<tr>
+<td>95002</td>
+<td>5</td>
+<td>60</td>
+<td>4</td>
+</tr>
+<tr>
+<td>95003</td>
+<td>4</td>
+<td>70</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+</div></article></div></main><footer><div class="paginator"><a href="/2018/04/29/HTTPS配置/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2018 <a href="http://yoursite.com">zhs</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
