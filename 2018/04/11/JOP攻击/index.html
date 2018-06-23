@@ -1,4 +1,137 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Jump-oriented programming(跳转导向编程) · Abigale</title><meta name="description" content="Jump-oriented programming(跳转导向编程) - zhs"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Abigale"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://www.abigale.xin" target="_blank" class="nav-list-link">ALIYUN</a></li><li class="nav-list-item"><a href="https://github.com/o1zhs" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Jump-oriented programming(跳转导向编程)</h1><div class="post-info">Apr 11, 2018</div><div class="post-content"><h1 id="JOP攻击"><a href="#JOP攻击" class="headerlink" title="JOP攻击"></a>JOP攻击</h1><h2 id="一、JOP"><a href="#一、JOP" class="headerlink" title="一、JOP"></a>一、JOP</h2><p>​        JOP 的全称为 Jump-oriented programming（跳转导向编程）,攻击与ROP 攻击类似。它同样利用二进制可执行文件中已有的代码片段来进行攻击。ROP使用的是ret指令来改变程序的控制流，而JOP攻击利用的是程序间接接跳转和间接调用指令（间接 call 指令）来改变程序的控制流。当程序在执行间接跳转或者是间接调用指令时，程序将从指定寄存器中获得其跳转的目的地址，由于这些跳转目的地址被保在寄存器中，而攻击者又能通过修改栈中的内容来修改寄存器内容，这使得程序中间接跳转和间接调用的目的地址能被攻击者篡改。当攻击者篡改这些寄存器当中的内容时，攻击者就能够使程序跳转到攻击者所构建的 gadget地址处，进而实施 JOP攻击。</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Jump-oriented programming(跳转导向编程) - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> The personal website of 张浩森 | 天行健，君子以自强不息 。地势坤，君子以厚德载物 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/" />
+        </div>
+        <div class="name">
+            <i>zhs</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JOP攻击"><span class="toc-text">JOP攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、JOP"><span class="toc-text">一、JOP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、进行攻击必要的环境以及工具"><span class="toc-text">二、进行攻击必要的环境以及工具</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#pwntools："><span class="toc-text">pwntools：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ROPgadget"><span class="toc-text">ROPgadget:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#gdb-peda"><span class="toc-text">gdb-peda:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、预备知识"><span class="toc-text">三、预备知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、函数栈帧结构"><span class="toc-text">1、函数栈帧结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、x64架构中的函数传参"><span class="toc-text">2、x64架构中的函数传参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、内存中的相对地址和绝对地址"><span class="toc-text">3、内存中的相对地址和绝对地址</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、攻击过程"><span class="toc-text">四、攻击过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、攻击目的分析"><span class="toc-text">1、攻击目的分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、漏洞代码分析"><span class="toc-text">2、漏洞代码分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、程序溢出点的获取"><span class="toc-text">3、程序溢出点的获取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、system-和”-bin-sh”地址的获取"><span class="toc-text">4、system()和”/bin/sh”地址的获取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、gadget的分析以及利用"><span class="toc-text">5、gadget的分析以及利用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-text"> </span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> The personal website of 张浩森 | 天行健，君子以自强不息 。地势坤，君子以厚德载物 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Jump-oriented programming(跳转导向编程)
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2018-04-11 22:50:29</span></span>
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="JOP攻击"><a href="#JOP攻击" class="headerlink" title="JOP攻击"></a>JOP攻击</h1><h2 id="一、JOP"><a href="#一、JOP" class="headerlink" title="一、JOP"></a>一、JOP</h2><p>​        JOP 的全称为 Jump-oriented programming（跳转导向编程）,攻击与ROP 攻击类似。它同样利用二进制可执行文件中已有的代码片段来进行攻击。ROP使用的是ret指令来改变程序的控制流，而JOP攻击利用的是程序间接接跳转和间接调用指令（间接 call 指令）来改变程序的控制流。当程序在执行间接跳转或者是间接调用指令时，程序将从指定寄存器中获得其跳转的目的地址，由于这些跳转目的地址被保在寄存器中，而攻击者又能通过修改栈中的内容来修改寄存器内容，这使得程序中间接跳转和间接调用的目的地址能被攻击者篡改。当攻击者篡改这些寄存器当中的内容时，攻击者就能够使程序跳转到攻击者所构建的 gadget地址处，进而实施 JOP攻击。</p>
 <h2 id="二、进行攻击必要的环境以及工具"><a href="#二、进行攻击必要的环境以及工具" class="headerlink" title="二、进行攻击必要的环境以及工具"></a>二、进行攻击必要的环境以及工具</h2><p>​        本文采用的是Linux中的ubuntu 16.04 LTS  x64系统。其中的工具有pwntools，ROPgadget，gdb-peda。下载和安装的方式如下：</p>
 <h4 id="pwntools："><a href="#pwntools：" class="headerlink" title="pwntools："></a>pwntools：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install pwn</span><br></pre></td></tr></table></figure>
 <p>如果系统里没有pip，运行</p>
@@ -56,4 +189,54 @@
 <p>参考：</p>
 <p><a href="http://jaq.alibaba.com/community/art/show?spm=a313e.7916648.0.0.78e74d82WcwIGi&amp;articleid=403" target="_blank" rel="noopener">http://jaq.alibaba.com/community/art/show?spm=a313e.7916648.0.0.78e74d82WcwIGi&amp;articleid=403</a></p>
 <p><a href="https://blog.csdn.net/alimobilesecurity/article/details/53067274" target="_blank" rel="noopener">https://blog.csdn.net/alimobilesecurity/article/details/53067274</a></p>
-<h1 id=""><a href="#" class="headerlink" title=" "></a> </h1></div></article></div></main><footer><div class="paginator"><a href="/2018/04/19/SQL练习/" class="prev">PREV</a><a href="/2018/02/11/时间复杂度--18.2.13/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2018 <a href="http://yoursite.com">zhs</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
+<h1 id=""><a href="#" class="headerlink" title=" "></a> </h1>
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</html>

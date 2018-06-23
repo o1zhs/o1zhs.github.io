@@ -1,4 +1,137 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> SQL练习 · Abigale</title><meta name="description" content="SQL练习 - zhs"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Abigale"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://www.abigale.xin" target="_blank" class="nav-list-link">ALIYUN</a></li><li class="nav-list-item"><a href="https://github.com/o1zhs" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">SQL练习</h1><div class="post-info">Apr 19, 2018</div><div class="post-content"><h1 id="实验：数据查询-MySQL"><a href="#实验：数据查询-MySQL" class="headerlink" title="实验：数据查询-MySQL"></a>实验：数据查询-MySQL</h1><h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a><strong>一、实验目的</strong></h2><p>l  了解MySQL查询编辑器的启动，熟悉如何在MySQL查询编辑器中查询记录。</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        SQL练习 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> The personal website of 张浩森 | 天行健，君子以自强不息 。地势坤，君子以厚德载物 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/" />
+        </div>
+        <div class="name">
+            <i>zhs</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#实验：数据查询-MySQL"><span class="toc-text">实验：数据查询-MySQL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、实验目的"><span class="toc-text">一、实验目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、实验任务"><span class="toc-text">二、实验任务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1．新建一个数据库HRM，并在数据库HRM中，建立如下所示的三个表："><span class="toc-text">1．新建一个数据库HRM，并在数据库HRM中，建立如下所示的三个表：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2．对上节建立的表输入数据："><span class="toc-text">2．对上节建立的表输入数据：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-练习下面简单的查询语句："><span class="toc-text">3. 练习下面简单的查询语句：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-练习多表连接查询和嵌套查询："><span class="toc-text">4. 练习多表连接查询和嵌套查询：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-提高操作实验"><span class="toc-text">5. 提高操作实验</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> The personal website of 张浩森 | 天行健，君子以自强不息 。地势坤，君子以厚德载物 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        SQL练习
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2018-04-19 07:38:03</span></span>
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="实验：数据查询-MySQL"><a href="#实验：数据查询-MySQL" class="headerlink" title="实验：数据查询-MySQL"></a>实验：数据查询-MySQL</h1><h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a><strong>一、实验目的</strong></h2><p>l  了解MySQL查询编辑器的启动，熟悉如何在MySQL查询编辑器中查询记录。</p>
 <p>l  掌握SELECT语句的基本语法和查询条件表示方法。</p>
 <p>l  掌握GROUP BY 和ORDER BY 子句的作用和使用方法。</p>
 <p>l  掌握连接查询和子查询的使用方法。</p>
@@ -776,4 +909,54 @@
 </tbody>
 </table>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> <span class="keyword">NAMES</span> utf8;</span><br><span class="line"><span class="keyword">SET</span> FOREIGN_KEY_CHECKS = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="comment">-- Table structure for Departments</span></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`Departments`</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`Departments`</span> (</span><br><span class="line">  <span class="string">`DepartmentID`</span> <span class="built_in">char</span>(<span class="number">3</span>) <span class="keyword">COLLATE</span> utf8_unicode_ci <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'员工部门号，主键'</span>,</span><br><span class="line">  <span class="string">`DepartmentName`</span> <span class="built_in">char</span>(<span class="number">20</span>) <span class="keyword">COLLATE</span> utf8_unicode_ci <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'部门名'</span>,</span><br><span class="line">  <span class="string">`Note`</span> <span class="built_in">text</span> <span class="keyword">COLLATE</span> utf8_unicode_ci <span class="keyword">COMMENT</span> <span class="string">'备注'</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`DepartmentID`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8 <span class="keyword">COLLATE</span>=utf8_unicode_ci;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="comment">-- Records of Departments</span></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="keyword">BEGIN</span>;</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`Departments`</span> <span class="keyword">VALUES</span> (<span class="string">'1'</span>, <span class="string">'财务部'</span>, <span class="string">'财务部'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`Departments`</span> <span class="keyword">VALUES</span> (<span class="string">'2'</span>, <span class="string">'研发部'</span>, <span class="string">'研发部'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`Departments`</span> <span class="keyword">VALUES</span> (<span class="string">'3'</span>, <span class="string">'人力资源部'</span>, <span class="string">'人力资源部'</span>);</span><br><span class="line"><span class="keyword">COMMIT</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="comment">-- Table structure for Employee</span></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`Employee`</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`Employee`</span> (</span><br><span class="line">  <span class="string">`EmployeeID`</span> <span class="built_in">char</span>(<span class="number">6</span>) <span class="keyword">COLLATE</span> utf8_unicode_ci <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'员工编号，主键'</span>,</span><br><span class="line">  <span class="string">`Name`</span> <span class="built_in">char</span>(<span class="number">10</span>) <span class="keyword">COLLATE</span> utf8_unicode_ci <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'姓名'</span>,</span><br><span class="line">  <span class="string">`Birthday`</span> datetime(<span class="number">6</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'出生日期'</span>,</span><br><span class="line">  <span class="string">`Sex`</span> <span class="built_in">int</span>(<span class="number">2</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'性别'</span>,</span><br><span class="line">  <span class="string">`Address`</span> <span class="built_in">char</span>(<span class="number">20</span>) <span class="keyword">COLLATE</span> utf8_unicode_ci <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'家庭地址'</span>,</span><br><span class="line">  <span class="string">`Zip`</span> <span class="built_in">char</span>(<span class="number">6</span>) <span class="keyword">COLLATE</span> utf8_unicode_ci <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'邮编'</span>,</span><br><span class="line">  <span class="string">`PhoneNumber`</span> <span class="built_in">char</span>(<span class="number">12</span>) <span class="keyword">COLLATE</span> utf8_unicode_ci <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'电话号码'</span>,</span><br><span class="line">  <span class="string">`EmailAddress`</span> <span class="built_in">char</span>(<span class="number">30</span>) <span class="keyword">COLLATE</span> utf8_unicode_ci <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'电子邮件地址'</span>,</span><br><span class="line">  <span class="string">`DepartmentID`</span> <span class="built_in">char</span>(<span class="number">3</span>) <span class="keyword">COLLATE</span> utf8_unicode_ci <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'员工部门号，外键'</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`EmployeeID`</span>),</span><br><span class="line">  <span class="keyword">KEY</span> <span class="string">`foreign_key1`</span> (<span class="string">`DepartmentID`</span>),</span><br><span class="line">  <span class="keyword">CONSTRAINT</span> <span class="string">`foreign_key1`</span> FOREIGN <span class="keyword">KEY</span> (<span class="string">`DepartmentID`</span>) <span class="keyword">REFERENCES</span> <span class="string">`Departments`</span> (<span class="string">`DepartmentID`</span>) <span class="keyword">ON</span> <span class="keyword">DELETE</span> <span class="keyword">NO</span> <span class="keyword">ACTION</span> <span class="keyword">ON</span> <span class="keyword">UPDATE</span> <span class="keyword">CASCADE</span></span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8 <span class="keyword">COLLATE</span>=utf8_unicode_ci;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="comment">-- Records of Employee</span></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="keyword">BEGIN</span>;</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`Employee`</span> <span class="keyword">VALUES</span> (<span class="string">'1001'</span>, <span class="string">'李勇'</span>, <span class="string">'1978-03-12 00:00:00.000000'</span>, <span class="number">0</span>, <span class="string">'湖南岳阳'</span>, <span class="string">'475001'</span>, <span class="string">'3880378'</span>, <span class="string">'ly@henu.edu.cn'</span>, <span class="string">'1'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`Employee`</span> <span class="keyword">VALUES</span> (<span class="string">'1002'</span>, <span class="string">'王敏'</span>, <span class="string">'1980-11-02 00:00:00.000000'</span>, <span class="number">1</span>, <span class="string">'湖南衡阳'</span>, <span class="string">'475002'</span>, <span class="string">'378311'</span>, <span class="string">'wm@henu.edu.cn'</span>, <span class="string">'1'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`Employee`</span> <span class="keyword">VALUES</span> (<span class="string">'1003'</span>, <span class="string">'刘晨'</span>, <span class="string">'1978-06-22 00:00:00.000000'</span>, <span class="number">0</span>, <span class="string">'湖南娄底'</span>, <span class="string">'475003'</span>, <span class="string">'378322'</span>, <span class="string">'lc@henu.edu.cn'</span>, <span class="string">'1'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`Employee`</span> <span class="keyword">VALUES</span> (<span class="string">'2001'</span>, <span class="string">'张立'</span>, <span class="string">'1978-08-01 00:00:00.000000'</span>, <span class="number">0</span>, <span class="string">'湖南长沙'</span>, <span class="string">'475004'</span>, <span class="string">'378333'</span>, <span class="string">'zl@henu.edu.cn'</span>, <span class="string">'2'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`Employee`</span> <span class="keyword">VALUES</span> (<span class="string">'2002'</span>, <span class="string">'刘毅'</span>, <span class="string">'1982-01-23 00:00:00.000000'</span>, <span class="number">0</span>, <span class="string">'湖南岳阳'</span>, <span class="string">'475005'</span>, <span class="string">'378344'</span>, <span class="string">'ly@henu.edu.cn'</span>, <span class="string">'2'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`Employee`</span> <span class="keyword">VALUES</span> (<span class="string">'2003'</span>, <span class="string">'张玫'</span>, <span class="string">'1981-03-15 00:00:00.000000'</span>, <span class="number">1</span>, <span class="string">'湖南邵阳'</span>, <span class="string">'475006'</span>, <span class="string">'378355'</span>, <span class="string">'zm@henu.edu.cn'</span>, <span class="string">'2'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`Employee`</span> <span class="keyword">VALUES</span> (<span class="string">'3001'</span>, <span class="string">'徐静'</span>, <span class="string">'1976-08-12 00:00:00.000000'</span>, <span class="number">1</span>, <span class="string">'河南洛阳'</span>, <span class="string">'475007'</span>, <span class="string">'378366'</span>, <span class="string">'xj@henu.edu.cn'</span>, <span class="string">'3'</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`Employee`</span> <span class="keyword">VALUES</span> (<span class="string">'3002'</span>, <span class="string">'赵军'</span>, <span class="string">'1979-02-19 00:00:00.000000'</span>, <span class="number">0</span>, <span class="string">'湖南岳阳'</span>, <span class="string">'475008'</span>, <span class="string">'378377'</span>, <span class="string">'zj@henu.edu.cn'</span>, <span class="string">'3'</span>);</span><br><span class="line"><span class="keyword">COMMIT</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="comment">-- Table structure for Salary</span></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`Salary`</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`Salary`</span> (</span><br><span class="line">  <span class="string">`EmployeeID`</span> <span class="built_in">char</span>(<span class="number">6</span>) <span class="keyword">COLLATE</span> utf8_unicode_ci <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'员工编号，外键'</span>,</span><br><span class="line">  <span class="string">`Income`</span> <span class="built_in">float</span>(<span class="number">8</span>,<span class="number">0</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'收入'</span>,</span><br><span class="line">  <span class="string">`OutCome`</span> <span class="built_in">float</span>(<span class="number">8</span>,<span class="number">0</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'支出\n'</span>,</span><br><span class="line">  <span class="keyword">KEY</span> <span class="string">`foreign_key2`</span> (<span class="string">`EmployeeID`</span>),</span><br><span class="line">  <span class="keyword">CONSTRAINT</span> <span class="string">`foreign_key2`</span> FOREIGN <span class="keyword">KEY</span> (<span class="string">`EmployeeID`</span>) <span class="keyword">REFERENCES</span> <span class="string">`Employee`</span> (<span class="string">`EmployeeID`</span>) <span class="keyword">ON</span> <span class="keyword">DELETE</span> <span class="keyword">NO</span> <span class="keyword">ACTION</span> <span class="keyword">ON</span> <span class="keyword">UPDATE</span> <span class="keyword">CASCADE</span></span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8 <span class="keyword">COLLATE</span>=utf8_unicode_ci;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="comment">-- Records of Salary</span></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="keyword">BEGIN</span>;</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`Salary`</span> <span class="keyword">VALUES</span> (<span class="string">'1001'</span>, <span class="number">3600</span>, <span class="number">1500</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`Salary`</span> <span class="keyword">VALUES</span> (<span class="string">'1002'</span>, <span class="number">3300</span>, <span class="number">1000</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`Salary`</span> <span class="keyword">VALUES</span> (<span class="string">'1003'</span>, <span class="number">3700</span>, <span class="number">1200</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`Salary`</span> <span class="keyword">VALUES</span> (<span class="string">'2001'</span>, <span class="number">4000</span>, <span class="number">1600</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`Salary`</span> <span class="keyword">VALUES</span> (<span class="string">'2002'</span>, <span class="number">3800</span>, <span class="number">1800</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`Salary`</span> <span class="keyword">VALUES</span> (<span class="string">'2003'</span>, <span class="number">3800</span>, <span class="number">1500</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`Salary`</span> <span class="keyword">VALUES</span> (<span class="string">'3001'</span>, <span class="number">4200</span>, <span class="number">2000</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="string">`Salary`</span> <span class="keyword">VALUES</span> (<span class="string">'3002'</span>, <span class="number">4100</span>, <span class="number">1800</span>);</span><br><span class="line"><span class="keyword">COMMIT</span>;</span><br></pre></td></tr></table></figure>
-</div></article></div></main><footer><div class="paginator"><a href="/2018/04/26/puf-attack/" class="prev">PREV</a><a href="/2018/04/11/JOP攻击/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2018 <a href="http://yoursite.com">zhs</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
+
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</html>
